@@ -1,0 +1,494 @@
+﻿<Window x:Class="Motion3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Motion3.Controls"
+        Title="NEON NEXUS"
+        WindowStyle="None"
+        AllowsTransparency="False"
+        WindowState="Maximized"
+        Background="{StaticResource BrushBlack}"
+        KeyDown="Window_KeyDown"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+
+    <Grid x:Name="Root" Background="{StaticResource BrushBlack}" ClipToBounds="True">
+
+        <!-- ======================= STATIC BACKGROUND ======================= -->
+        <!-- Thin perspective grid lines (static, frozen) -->
+        <Canvas x:Name="BgGrid" IsHitTestVisible="False">
+            <Canvas.Background>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,60,60" ViewportUnits="Absolute" Opacity="0.18">
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing>
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="0,0" EndPoint="60,0"/>
+                                    <LineGeometry StartPoint="0,0" EndPoint="0,60"/>
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="#1A2A40" Thickness="0.5"/>
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Canvas.Background>
+        </Canvas>
+
+        <!-- Vignette overlay -->
+        <Rectangle Fill="{StaticResource BrushVignette}" IsHitTestVisible="False"/>
+
+        <!-- Radial glow center -->
+        <Ellipse Width="700" Height="700"
+                 Fill="{StaticResource BrushCoreGlow}"
+                 Opacity="0.08"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 IsHitTestVisible="False"/>
+
+        <!-- ======================= PARTICLE LAYER ======================= -->
+        <controls:NeonParticleLayer x:Name="Particles" IsHitTestVisible="False"/>
+
+        <!-- ======================= SCENE 01 — DIGITAL AWAKENING ======================= -->
+        <Grid x:Name="Scene1Root" Visibility="Visible" Opacity="0" IsHitTestVisible="False">
+            <Canvas>
+                <!-- Center hairline (scales from center via transform group) -->
+                <Line x:Name="AwakenLine"
+                      X1="-300" Y1="0" X2="300" Y2="0"
+                      Stroke="{StaticResource BrushCyan}"
+                      StrokeThickness="1.2"
+                      Opacity="0"
+                      Canvas.Left="640" Canvas.Top="360"
+                      RenderTransformOrigin="0,0">
+                    <Line.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="AwakenLineScale" ScaleX="0" ScaleY="1"/>
+                        </TransformGroup>
+                    </Line.RenderTransform>
+                </Line>
+
+                <!-- Hex wireframe fragments -->
+                <ContentControl x:Name="HexFrag0" Opacity="0" Canvas.Left="450" Canvas.Top="280">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="HexFrag0Tx"/>
+                            <RotateTransform x:Name="HexFrag0Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-22 19,-11 19,11 0,22 -19,11 -19,-11"
+                             Stroke="{StaticResource BrushCyan}" StrokeThickness="1.0" Fill="Transparent" Opacity="0.8"/>
+                </ContentControl>
+                <ContentControl x:Name="HexFrag1" Opacity="0" Canvas.Left="820" Canvas.Top="420">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="HexFrag1Tx"/>
+                            <RotateTransform x:Name="HexFrag1Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-18 15.5,-8 15.5,8 0,18 -15.5,8 -15.5,-8"
+                             Stroke="{StaticResource BrushMagenta}" StrokeThickness="1.0" Fill="Transparent" Opacity="0.75"/>
+                </ContentControl>
+                <ContentControl x:Name="HexFrag2" Opacity="0" Canvas.Left="560" Canvas.Top="460">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="HexFrag2Tx"/>
+                            <RotateTransform x:Name="HexFrag2Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-20 17,-10 17,10 0,20 -17,10 -17,-10"
+                             Stroke="{StaticResource BrushPurple}" StrokeThickness="1.0" Fill="Transparent" Opacity="0.7"/>
+                </ContentControl>
+                <ContentControl x:Name="HexFrag3" Opacity="0" Canvas.Left="720" Canvas.Top="280">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="HexFrag3Tx"/>
+                            <RotateTransform x:Name="HexFrag3Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8"
+                             Stroke="{StaticResource BrushCyan}" StrokeThickness="0.9" Fill="Transparent" Opacity="0.75"/>
+                </ContentControl>
+                <ContentControl x:Name="HexFrag4" Opacity="0" Canvas.Left="500" Canvas.Top="350">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="HexFrag4Tx"/>
+                            <RotateTransform x:Name="HexFrag4Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-24 21,-12 21,12 0,24 -21,12 -21,-12"
+                             Stroke="{StaticResource BrushUltraviolet}" StrokeThickness="1.1" Fill="Transparent" Opacity="0.65"/>
+                </ContentControl>
+                <ContentControl x:Name="HexFrag5" Opacity="0" Canvas.Left="780" Canvas.Top="340">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="HexFrag5Tx"/>
+                            <RotateTransform x:Name="HexFrag5Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-15 13,-7 13,7 0,15 -13,7 -13,-7"
+                             Stroke="{StaticResource BrushMagenta}" StrokeThickness="0.9" Fill="Transparent" Opacity="0.8"/>
+                </ContentControl>
+
+                <!-- Scan beam -->
+                <Rectangle x:Name="ScanBeam"
+                           Width="4" Height="400"
+                           Fill="{StaticResource BrushCyanBeam}"
+                           Opacity="0"
+                           Canvas.Left="-2"
+                           Canvas.Top="160"
+                           RenderTransformOrigin="0,0">
+                    <Rectangle.RenderTransform>
+                        <TranslateTransform x:Name="ScanBeamTx" X="-300"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+                <!-- Headline -->
+                <Canvas x:Name="Scene1Text" Opacity="0" Canvas.Left="640" Canvas.Top="490">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform x:Name="Scene1TextTy" Y="24"/>
+                    </Canvas.RenderTransform>
+                    <TextBlock Text="INNOVATION STARTS HERE"
+                               FontFamily="{StaticResource FontPrimary}"
+                               FontSize="38" FontWeight="Bold"
+                               Foreground="{StaticResource BrushWarmWhite}"
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Canvas>
+            </Canvas>
+        </Grid>
+
+        <!-- ======================= SCENE 02 — KINETIC ENERGY ======================= -->
+        <Grid x:Name="Scene2Root" Visibility="Visible" Opacity="0" IsHitTestVisible="False">
+            <Canvas>
+                <!-- Three rotating ring layers -->
+                <Ellipse x:Name="P2Ring2" Width="480" Height="480"
+                         Canvas.Left="-240" Canvas.Top="-240"
+                         Stroke="{StaticResource BrushUltraviolet}"
+                         StrokeThickness="0.8" Fill="Transparent" Opacity="0.45"
+                         RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="P2Ring2Rt"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse x:Name="P2Ring1" Width="360" Height="360"
+                         Canvas.Left="-180" Canvas.Top="-180"
+                         Stroke="{StaticResource BrushMagenta}"
+                         StrokeThickness="0.9" Fill="Transparent" Opacity="0.5"
+                         RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="P2Ring1Rt"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse x:Name="P2Ring0" Width="240" Height="240"
+                         Canvas.Left="-120" Canvas.Top="-120"
+                         Stroke="{StaticResource BrushCyan}"
+                         StrokeThickness="1.0" Fill="Transparent" Opacity="0.6"
+                         RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="P2Ring0Rt"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+                <!-- Rotating polygon outlines -->
+                <ContentControl x:Name="P2Poly0" Opacity="0" Canvas.Left="640" Canvas.Top="360">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform x:Name="P2Poly0Rt"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-55 47.6,-27.5 47.6,27.5 0,55 -47.6,27.5 -47.6,-27.5"
+                             Stroke="{StaticResource BrushMagenta}" StrokeThickness="1.1" Fill="Transparent"/>
+                </ContentControl>
+                <ContentControl x:Name="P2Poly1" Opacity="0" Canvas.Left="640" Canvas.Top="360">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform x:Name="P2Poly1Rt"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Polygon Points="0,-65 38,-22 65,0 38,22 0,65 -38,22 -65,0 -38,-22"
+                             Stroke="{StaticResource BrushCyan}" StrokeThickness="0.9" Fill="Transparent" Opacity="0.6"/>
+                </ContentControl>
+
+                <!-- Accent flash lines -->
+                <Line x:Name="P2Flash0" X1="0" Y1="0" X2="320" Y2="0"
+                      Stroke="{StaticResource BrushCyan}" StrokeThickness="1.5"
+                      Opacity="0"
+                      Canvas.Left="640" Canvas.Top="310"
+                      StrokeDashArray="4 3"/>
+                <Line x:Name="P2Flash1" X1="0" Y1="0" X2="260" Y2="0"
+                      Stroke="{StaticResource BrushMagenta}" StrokeThickness="1.5"
+                      Opacity="0"
+                      Canvas.Left="640" Canvas.Top="430"
+                      StrokeDashArray="4 3"/>
+
+                <!-- Words: DESIGN. ENGINEER. ANIMATE. -->
+                <ContentControl x:Name="P2Word0" Opacity="0" Canvas.Left="640" Canvas.Top="295">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="P2Word0Tx"/>
+                            <ScaleTransform x:Name="P2Word0Sc" ScaleX="0.65" ScaleY="0.65"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <TextBlock Text="DESIGN." FontFamily="{StaticResource FontPrimary}"
+                               FontSize="36" FontWeight="Bold"
+                               Foreground="{StaticResource BrushWarmWhite}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </ContentControl>
+                <ContentControl x:Name="P2Word1" Opacity="0" Canvas.Left="640" Canvas.Top="365">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="P2Word1Tx"/>
+                            <ScaleTransform x:Name="P2Word1Sc" ScaleX="0.65" ScaleY="0.65"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <TextBlock Text="ENGINEER." FontFamily="{StaticResource FontPrimary}"
+                               FontSize="36" FontWeight="Bold"
+                               Foreground="{StaticResource BrushCyan}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </ContentControl>
+                <ContentControl x:Name="P2Word2" Opacity="0" Canvas.Left="640" Canvas.Top="435">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="P2Word2Tx"/>
+                            <ScaleTransform x:Name="P2Word2Sc" ScaleX="0.65" ScaleY="0.65"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <TextBlock Text="ANIMATE." FontFamily="{StaticResource FontPrimary}"
+                               FontSize="36" FontWeight="Bold"
+                               Foreground="{StaticResource BrushMagenta}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </ContentControl>
+            </Canvas>
+        </Grid>
+
+        <!-- ======================= SCENE 03 — THE DIGITAL CORE ======================= -->
+        <Grid x:Name="Scene3Root" Visibility="Visible" Opacity="0" IsHitTestVisible="False">
+            <Canvas>
+                <!-- Geometric core host (uses its own internal TransformGroup: ScaleRoot + CoreRotation) -->
+                <controls:GeometricCore x:Name="GeoCoreHost"
+                                        Opacity="0"
+                                        Canvas.Left="640" Canvas.Top="360"/>
+
+                <!-- Pulse glow behind core -->
+                <Ellipse x:Name="CoreGlowPulse" Width="200" Height="200"
+                         Canvas.Left="540" Canvas.Top="260"
+                         Fill="{StaticResource BrushCoreGlow}"
+                         Opacity="0.35"
+                         IsHitTestVisible="False"
+                         RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <ScaleTransform x:Name="CorePulse" ScaleX="1" ScaleY="1"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+                <!-- Tech overlay (coordinates, labels, progress bar) -->
+                <StackPanel x:Name="TechOverlay" Opacity="0" IsHitTestVisible="False"
+                            Canvas.Left="60" Canvas.Top="60">
+                    <TextBlock Style="{StaticResource StyleTech}" Text="SYS.CORE v4.1.0"/>
+                    <TextBlock Style="{StaticResource StyleTech}" Text="STATUS: ACTIVE" Margin="0,2,0,0"/>
+                    <TextBlock Style="{StaticResource StyleTech}" Text="ORBIT.SYNC: LOCKED" Margin="0,2,0,0"/>
+                    <TextBlock Style="{StaticResource StyleTech}" Margin="0,8,0,0">
+                        <Run Text="POS X:"/>
+                        <Run Text="640.00"/>
+                        <Run Text="  Y: 360.00"/>
+                    </TextBlock>
+                    <!-- Progress bar (filled via translate) -->
+                    <Canvas Width="140" Height="4" Margin="0,6,0,0">
+                        <Rectangle Width="140" Height="4" Fill="#1A2A40"/>
+                        <Rectangle Width="140" Height="4" Fill="{StaticResource BrushCyan}">
+                            <Rectangle.RenderTransform>
+                                <TranslateTransform x:Name="TechProgressTx" X="-70"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </Canvas>
+                </StackPanel>
+
+                <!-- Headline -->
+                <Canvas x:Name="Scene3Text" Opacity="0" Canvas.Left="640" Canvas.Top="530">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform x:Name="Scene3TextTy" Y="20"/>
+                    </Canvas.RenderTransform>
+                    <TextBlock Text="PRECISION MEETS CREATIVITY"
+                               FontFamily="{StaticResource FontPrimary}"
+                               FontSize="32" FontWeight="SemiBold"
+                               Foreground="{StaticResource BrushCyan}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </Canvas>
+            </Canvas>
+        </Grid>
+
+        <!-- ======================= SCENE 04 — KINETIC TYPOGRAPHY ======================= -->
+        <Grid x:Name="Scene4Root" Visibility="Visible" Opacity="0" IsHitTestVisible="False">
+            <Canvas>
+                <!-- Horizontal panels / slabs -->
+                <Rectangle x:Name="Panel0" Width="3200" Height="100"
+                           Fill="{StaticResource BrushPanelCyan}"
+                           Opacity="0"
+                           Canvas.Left="-1600" Canvas.Top="200"
+                           RenderTransformOrigin="0,0">
+                    <Rectangle.RenderTransform>
+                        <TranslateTransform x:Name="Panel0Tx"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle x:Name="Panel1" Width="2800" Height="80"
+                           Fill="{StaticResource BrushPanelMagenta}"
+                           Opacity="0"
+                           Canvas.Left="1600" Canvas.Top="340"
+                           RenderTransformOrigin="0,0">
+                    <Rectangle.RenderTransform>
+                        <TranslateTransform x:Name="Panel1Tx"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle x:Name="Panel2" Width="3400" Height="90"
+                           Fill="{StaticResource BrushPanelUltraviolet}"
+                           Opacity="0"
+                           Canvas.Left="-1700" Canvas.Top="480"
+                           RenderTransformOrigin="0,0">
+                    <Rectangle.RenderTransform>
+                        <TranslateTransform x:Name="Panel2Tx"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+                <!-- Line 1: BUILT WITH CODE -->
+                <ContentControl x:Name="S4Line1" Opacity="0" Canvas.Left="640" Canvas.Top="310">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="S4Line1Tx"/>
+                            <TranslateTransform x:Name="S4Line1Ty"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <TextBlock Text="BUILT WITH CODE"
+                               FontFamily="{StaticResource FontPrimary}"
+                               FontSize="62" FontWeight="Bold"
+                               Foreground="{StaticResource BrushWarmWhite}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </ContentControl>
+
+                <!-- Line 2: DESIGNED TO MOVE -->
+                <ContentControl x:Name="S4Line2" Opacity="0" Canvas.Left="640" Canvas.Top="400">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="S4Line2Tx"/>
+                            <TranslateTransform x:Name="S4Line2Ty"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <TextBlock Text="DESIGNED TO MOVE"
+                               FontFamily="{StaticResource FontPrimary}"
+                               FontSize="52" FontWeight="SemiBold"
+                               Foreground="{StaticResource BrushCyan}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </ContentControl>
+            </Canvas>
+        </Grid>
+
+        <!-- ======================= SCENE 05 — SIGNATURE FINALE ======================= -->
+        <Grid x:Name="Scene5Root" Visibility="Visible" Opacity="0" IsHitTestVisible="False">
+            <Canvas>
+                <!-- Geometric core (contracted; internal TransformGroup drives contraction) -->
+                <controls:GeometricCore x:Name="GeoCoreFinal"
+                                       Opacity="0"
+                                       Canvas.Left="640" Canvas.Top="320"/>
+
+                <!-- Expanding shockwave ring -->
+                <Ellipse x:Name="ShockRing"
+                         Width="20" Height="20"
+                         Canvas.Left="630" Canvas.Top="310"
+                         Stroke="{StaticResource BrushCyan}"
+                         StrokeThickness="3"
+                         Fill="Transparent"
+                         Opacity="0"
+                         RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <ScaleTransform x:Name="ShockScale" ScaleX="1" ScaleY="1"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+                <!-- Radial burst (8 spokes via polygon) -->
+                <ContentControl x:Name="RadialBurst" Opacity="0"
+                                Canvas.Left="640" Canvas.Top="320"
+                                IsHitTestVisible="False">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="RadialBurstScale" ScaleX="1" ScaleY="1"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <Canvas Width="600" Height="400">
+                        <!-- 8 radial lines from center -->
+                        <Line X1="300" Y1="200" X2="580" Y2="200"
+                              Stroke="{StaticResource BrushCyan}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="502" Y2="378"
+                              Stroke="{StaticResource BrushMagenta}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="98" Y2="378"
+                              Stroke="{StaticResource BrushCyan}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="20" Y2="200"
+                              Stroke="{StaticResource BrushUltraviolet}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="98" Y2="22"
+                              Stroke="{StaticResource BrushMagenta}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="502" Y2="22"
+                              Stroke="{StaticResource BrushCyan}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="410" Y2="390"
+                              Stroke="{StaticResource BrushPurple}" StrokeThickness="0.8" Opacity="0.7"/>
+                        <Line X1="300" Y1="200" X2="190" Y2="390"
+                              Stroke="{StaticResource BrushUltraviolet}" StrokeThickness="0.8" Opacity="0.7"/>
+                    </Canvas>
+                </ContentControl>
+
+                <!-- Brand title: NEON NEXUS -->
+                <ContentControl x:Name="BrandTitle" Opacity="0"
+                                Canvas.Left="640" Canvas.Top="420">
+                    <ContentControl.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="BrandTitleScale" ScaleX="0.86" ScaleY="0.86"/>
+                        </TransformGroup>
+                    </ContentControl.RenderTransform>
+                    <TextBlock Text="NEON NEXUS"
+                               FontFamily="{StaticResource FontPrimary}"
+                               FontSize="88" FontWeight="Bold"
+                               Foreground="{StaticResource BrushWhite}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </ContentControl>
+
+                <!-- Subtitle -->
+                <Canvas x:Name="BrandSub" Opacity="0" Canvas.Left="640" Canvas.Top="510">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform x:Name="BrandSubTy" Y="18"/>
+                    </Canvas.RenderTransform>
+                    <TextBlock Text="THE FUTURE IN MOTION"
+                               FontFamily="{StaticResource FontPrimary}"
+                               FontSize="36" FontWeight="Light"
+                               Foreground="{StaticResource BrushCyan}"
+                               TextAlignment="Center" HorizontalAlignment="Center"/>
+                </Canvas>
+
+                <!-- Signature line -->
+                <Canvas x:Name="BrandSig" Opacity="0" Canvas.Left="640" Canvas.Top="565">
+                    <TextBlock Text="CREATIVE ENGINEERING  •  WPF  •  C#"
+                               FontFamily="{StaticResource FontMono}"
+                               FontSize="11"
+                               Foreground="{StaticResource BrushCyanDim}"
+                               TextAlignment="Center" HorizontalAlignment="Center"
+                               Opacity="0.8"/>
+                </Canvas>
+            </Canvas>
+        </Grid>
+
+        <!-- ======================= GLOBAL OVERLAYS ======================= -->
+        <!-- Screen fade (scene transitions + final black) -->
+        <Rectangle x:Name="GlobalFade"
+                   Fill="{StaticResource BrushBlack}"
+                   Opacity="0"
+                   IsHitTestVisible="False"/>
+
+        <!-- Debug FPS overlay (toggled with D key) -->
+        <TextBlock x:Name="DebugOverlay"
+                   Text=""
+                   FontFamily="{StaticResource FontMono}"
+                   FontSize="11"
+                   Foreground="{StaticResource BrushCyanDim}"
+                   HorizontalAlignment="Left" VerticalAlignment="Top"
+                   Margin="12,10,0,0"
+                   IsHitTestVisible="False"
+                   Visibility="Collapsed"/>
+    </Grid>
+</Window>

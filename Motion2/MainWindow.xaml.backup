@@ -1,0 +1,347 @@
+﻿<Window x:Class="Motion1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Motion Showreel"
+        Width="1280"
+        Height="720"
+        MinWidth="960"
+        MinHeight="540"
+        WindowStartupLocation="CenterScreen"
+        Background="#05070D"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display"
+        TextOptions.TextRenderingMode="ClearType"
+        RenderOptions.EdgeMode="Aliased">
+
+    <Window.Resources>
+        <Color x:Key="BgA">#060913</Color>
+        <Color x:Key="BgB">#101A2C</Color>
+        <SolidColorBrush x:Key="Cyan" Color="#4DFFF4" />
+        <SolidColorBrush x:Key="Blue" Color="#4C8DFF" />
+        <SolidColorBrush x:Key="Peach" Color="#FFAA7A" />
+        <SolidColorBrush x:Key="OffWhite" Color="#F5F7FF" />
+
+        <Storyboard x:Key="ShowreelStoryboard"
+                    RepeatBehavior="Forever"
+                    Duration="0:0:15"
+                    FillBehavior="HoldEnd"
+                    Timeline.DesiredFrameRate="60">
+
+            <DoubleAnimation Storyboard.TargetName="OrbitA"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                             From="0"
+                             To="360"
+                             Duration="0:0:15" />
+
+            <DoubleAnimation Storyboard.TargetName="OrbitB"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                             From="360"
+                             To="0"
+                             Duration="0:0:15" />
+
+            <DoubleAnimation Storyboard.TargetName="Wave1"
+                             Storyboard.TargetProperty="(Shape.StrokeDashOffset)"
+                             From="0"
+                             To="-900"
+                             Duration="0:0:15" />
+
+            <DoubleAnimation Storyboard.TargetName="Wave2"
+                             Storyboard.TargetProperty="(Shape.StrokeDashOffset)"
+                             From="0"
+                             To="1200"
+                             Duration="0:0:15" />
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="IntroBlock"
+                                           Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.8" Value="1" KeySpline="0.2,0.9 0.3,1" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:4.6" Value="1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:5.3" Value="0" KeySpline="0.7,0 0.9,0.2" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:15" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="IntroBlockScale"
+                                           Storyboard.TargetProperty="ScaleX">
+                <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0.84" KeySpline="0.2,0.9 0.3,1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:1.2" Value="1" KeySpline="0.2,0.9 0.3,1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:5.3" Value="1.08" KeySpline="0.7,0 0.9,0.2" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="IntroBlockScale"
+                                           Storyboard.TargetProperty="ScaleY">
+                <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0.84" KeySpline="0.2,0.9 0.3,1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:1.2" Value="1" KeySpline="0.2,0.9 0.3,1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:5.3" Value="1.08" KeySpline="0.7,0 0.9,0.2" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MiddleBlock"
+                                           Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:4.9" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:5.8" Value="1" KeySpline="0.2,0.9 0.3,1" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:9.6" Value="1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:10.3" Value="0" KeySpline="0.7,0 0.9,0.2" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:15" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MiddleBlockShift"
+                                           Storyboard.TargetProperty="Y">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="24" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:4.9" Value="24" />
+                <SplineDoubleKeyFrame KeyTime="0:0:6.2" Value="0" KeySpline="0.2,0.9 0.3,1" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:9.4" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:10.3" Value="-24" KeySpline="0.7,0 0.9,0.2" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimation Storyboard.TargetName="Bar1Scale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.2"
+                             To="1"
+                             Duration="0:0:0.45"
+                             AutoReverse="True"
+                             RepeatBehavior="Forever"
+                             BeginTime="0:0:5.3" />
+
+            <DoubleAnimation Storyboard.TargetName="Bar2Scale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.3"
+                             To="1"
+                             Duration="0:0:0.33"
+                             AutoReverse="True"
+                             RepeatBehavior="Forever"
+                             BeginTime="0:0:5.3" />
+
+            <DoubleAnimation Storyboard.TargetName="Bar3Scale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.15"
+                             To="1"
+                             Duration="0:0:0.52"
+                             AutoReverse="True"
+                             RepeatBehavior="Forever"
+                             BeginTime="0:0:5.3" />
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FinalBlock"
+                                           Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:9.8" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:10.7" Value="1" KeySpline="0.2,0.9 0.3,1" />
+                <DiscreteDoubleKeyFrame KeyTime="0:0:14.6" Value="1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:15" Value="0" KeySpline="0.7,0 0.9,0.2" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FinalBlockScale"
+                                           Storyboard.TargetProperty="ScaleX">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:9.8" Value="0.9" />
+                <SplineDoubleKeyFrame KeyTime="0:0:11.1" Value="1" KeySpline="0.2,0.9 0.3,1" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FinalBlockScale"
+                                           Storyboard.TargetProperty="ScaleY">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:9.8" Value="0.9" />
+                <SplineDoubleKeyFrame KeyTime="0:0:11.1" Value="1" KeySpline="0.2,0.9 0.3,1" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimation Storyboard.TargetName="ProgressScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="0"
+                             To="1"
+                             Duration="0:0:15" />
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource BgA}" Offset="0" />
+                <GradientStop Color="{StaticResource BgB}" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Viewbox Stretch="UniformToFill" RenderOptions.BitmapScalingMode="Fant" CacheMode="BitmapCache">
+            <Grid x:Name="SceneRoot" Width="1920" Height="1080" ClipToBounds="True" CacheMode="BitmapCache">
+
+                <Canvas x:Name="ParticleLayer" CacheMode="BitmapCache">
+                    <Ellipse Width="700" Height="700" Canvas.Left="-220" Canvas.Top="180" Opacity="0.22">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#44A9FFF9" Offset="0" />
+                                <GradientStop Color="#00A9FFF9" Offset="1" />
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Ellipse Width="760" Height="760" Canvas.Left="1380" Canvas.Top="160" Opacity="0.17">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#59FFB58B" Offset="0" />
+                                <GradientStop Color="#00FFB58B" Offset="1" />
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Canvas x:Name="OrbitA" Width="1920" Height="1080" Opacity="0.48">
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="0" CenterX="960" CenterY="540" />
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                        <Ellipse Width="14" Height="14" Fill="{StaticResource Cyan}" Canvas.Left="350" Canvas.Top="180" />
+                        <Ellipse Width="10" Height="10" Fill="{StaticResource Blue}" Canvas.Left="1500" Canvas.Top="220" />
+                        <Ellipse Width="8" Height="8" Fill="{StaticResource Peach}" Canvas.Left="250" Canvas.Top="740" />
+                        <Ellipse Width="12" Height="12" Fill="{StaticResource OffWhite}" Canvas.Left="1640" Canvas.Top="780" />
+                    </Canvas>
+
+                    <Canvas x:Name="OrbitB" Width="1920" Height="1080" Opacity="0.36">
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="360" CenterX="960" CenterY="540" />
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                        <Ellipse Width="7" Height="7" Fill="{StaticResource Blue}" Canvas.Left="560" Canvas.Top="150" />
+                        <Ellipse Width="7" Height="7" Fill="{StaticResource Cyan}" Canvas.Left="1710" Canvas.Top="630" />
+                        <Ellipse Width="9" Height="9" Fill="{StaticResource Peach}" Canvas.Left="800" Canvas.Top="920" />
+                        <Ellipse Width="6" Height="6" Fill="{StaticResource OffWhite}" Canvas.Left="220" Canvas.Top="460" />
+                    </Canvas>
+                </Canvas>
+
+                <Canvas CacheMode="BitmapCache" Opacity="0.54">
+                    <Path x:Name="Wave1"
+                          Stroke="#4D7CCBFF"
+                          StrokeThickness="2"
+                          StrokeDashArray="4,10"
+                          Data="M -120 290 C 220 220, 520 380, 870 290 S 1550 180, 2080 320" />
+                    <Path x:Name="Wave2"
+                          Stroke="#66FFC5A0"
+                          StrokeThickness="2"
+                          StrokeDashArray="3,9"
+                          Data="M -200 760 C 180 620, 500 910, 880 760 S 1470 600, 2140 810" />
+                </Canvas>
+
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1480" Height="760">
+
+                    <Grid x:Name="IntroBlock" Opacity="0" CacheMode="BitmapCache">
+                        <Grid.RenderTransform>
+                            <ScaleTransform x:Name="IntroBlockScale" ScaleX="1" ScaleY="1" />
+                        </Grid.RenderTransform>
+
+                        <Border Width="980" Height="240" CornerRadius="24" BorderBrush="#77FFFFFF" BorderThickness="1"
+                                Background="#151E2B2C" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="MOTION DESIGN SHOWREEL"
+                                       Foreground="#CCF5F7FF"
+                                       FontSize="30"
+                                       FontWeight="SemiBold"
+                                       HorizontalAlignment="Center" />
+                            <TextBlock Text="I BUILD RHYTHM, ENERGY, AND STORY"
+                                       Foreground="{StaticResource Cyan}"
+                                       FontSize="68"
+                                       FontWeight="Black"
+                                       Margin="0,10,0,0"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid x:Name="MiddleBlock" Opacity="0" CacheMode="BitmapCache">
+                        <Grid.RenderTransform>
+                            <TranslateTransform x:Name="MiddleBlockShift" Y="24" />
+                        </Grid.RenderTransform>
+
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="FRAME-PERFECT. MUSICAL. BOLD."
+                                       Foreground="#FFF5F7FF"
+                                       FontSize="34"
+                                       FontWeight="SemiBold"
+                                       HorizontalAlignment="Center" />
+
+                            <TextBlock Text="DESIGNING EVERY BEAT"
+                                       Foreground="{StaticResource Blue}"
+                                       FontSize="86"
+                                       FontWeight="Black"
+                                       Margin="0,8,0,22"
+                                       HorizontalAlignment="Center" />
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Border Width="90" Height="170" CornerRadius="20" Background="#22FFFFFF" Margin="12,0">
+                                    <Rectangle Width="36" Height="126" Fill="{StaticResource Cyan}" VerticalAlignment="Bottom" HorizontalAlignment="Center" RadiusX="16" RadiusY="16" RenderTransformOrigin="0.5,1">
+                                        <Rectangle.RenderTransform>
+                                            <ScaleTransform x:Name="Bar1Scale" ScaleY="0.2" />
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Border>
+
+                                <Border Width="90" Height="170" CornerRadius="20" Background="#22FFFFFF" Margin="12,0">
+                                    <Rectangle Width="36" Height="126" Fill="{StaticResource Blue}" VerticalAlignment="Bottom" HorizontalAlignment="Center" RadiusX="16" RadiusY="16" RenderTransformOrigin="0.5,1">
+                                        <Rectangle.RenderTransform>
+                                            <ScaleTransform x:Name="Bar2Scale" ScaleY="0.3" />
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Border>
+
+                                <Border Width="90" Height="170" CornerRadius="20" Background="#22FFFFFF" Margin="12,0">
+                                    <Rectangle Width="36" Height="126" Fill="{StaticResource Peach}" VerticalAlignment="Bottom" HorizontalAlignment="Center" RadiusX="16" RadiusY="16" RenderTransformOrigin="0.5,1">
+                                        <Rectangle.RenderTransform>
+                                            <ScaleTransform x:Name="Bar3Scale" ScaleY="0.15" />
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid x:Name="FinalBlock" Opacity="0" CacheMode="BitmapCache">
+                        <Grid.RenderTransform>
+                            <ScaleTransform x:Name="FinalBlockScale" ScaleX="1" ScaleY="1" />
+                        </Grid.RenderTransform>
+
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Width="1080" Height="276" CornerRadius="30" BorderBrush="#88FFFFFF" BorderThickness="1.2" Background="#1814253A" />
+
+                            <StackPanel Margin="0,-214,0,0" HorizontalAlignment="Center">
+                                <TextBlock Text="YOUR NEXT"
+                                           Foreground="#D9F5F7FF"
+                                           FontSize="35"
+                                           FontWeight="SemiBold"
+                                           HorizontalAlignment="Center" />
+                                <TextBlock Text="MOTION DESIGNER"
+                                           Foreground="{StaticResource Peach}"
+                                           FontSize="108"
+                                           FontWeight="Black"
+                                           HorizontalAlignment="Center" />
+                                <TextBlock Text="READY TO SHIP VISUALS THAT MOVE PEOPLE"
+                                           Foreground="{StaticResource Cyan}"
+                                           FontSize="28"
+                                           FontWeight="Medium"
+                                           HorizontalAlignment="Center"
+                                           Margin="0,10,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+                <Grid VerticalAlignment="Bottom" Margin="110,0,110,72" Height="10">
+                    <Border CornerRadius="8" Background="#2DFFFFFF" />
+                    <Border Background="{StaticResource Cyan}" CornerRadius="8" HorizontalAlignment="Left" Width="1700" RenderTransformOrigin="0,0.5">
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="ProgressScale" ScaleX="0" />
+                        </Border.RenderTransform>
+                    </Border>
+                </Grid>
+
+                <TextBlock Text="15s LOOP"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,96,42"
+                           Foreground="#AAFFFFFF"
+                           FontSize="20"
+                           FontWeight="Bold" />
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Window>

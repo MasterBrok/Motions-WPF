@@ -1,0 +1,96 @@
+<UserControl x:Class="Motion3.Controls.GeometricCore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="300" Height="300">
+    <Canvas x:Name="Root" RenderTransformOrigin="0.5,0.5">
+        <Canvas.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform x:Name="ScaleRoot" ScaleX="1" ScaleY="1"/>
+                <RotateTransform x:Name="CoreRotation" Angle="0"/>
+            </TransformGroup>
+        </Canvas.RenderTransform>
+
+        <!-- Outer ring (counter-rotates) -->
+        <Ellipse x:Name="OrbitRing2"
+                 Width="260" Height="260"
+                 Canvas.Left="-130" Canvas.Top="-130"
+                 Stroke="{StaticResource BrushUltraviolet}"
+                 StrokeThickness="0.9" Fill="Transparent"
+                 Opacity="0.5"
+                 RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <RotateTransform x:Name="Ring2Rotation"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <!-- Middle ring -->
+        <Ellipse x:Name="OrbitRing1"
+                 Width="210" Height="210"
+                 Canvas.Left="-105" Canvas.Top="-105"
+                 Stroke="{StaticResource BrushMagenta}"
+                 StrokeThickness="0.9" Fill="Transparent"
+                 Opacity="0.55"
+                 RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <RotateTransform x:Name="Ring1Rotation"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <!-- Inner orbit ring -->
+        <Ellipse x:Name="OrbitRing0"
+                 Width="165" Height="165"
+                 Canvas.Left="-82.5" Canvas.Top="-82.5"
+                 Stroke="{StaticResource BrushCyan}"
+                 StrokeThickness="0.9" Fill="Transparent"
+                 Opacity="0.6"
+                 RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <RotateTransform x:Name="Ring0Rotation"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <!-- Layered glow (no bitmap effects — gradient layers) -->
+        <Ellipse Width="120" Height="120"
+                 Canvas.Left="-60" Canvas.Top="-60"
+                 Fill="{StaticResource BrushCoreGlow}" Opacity="0.55"/>
+        <Ellipse Width="64" Height="64"
+                 Canvas.Left="-32" Canvas.Top="-32"
+                 Fill="{StaticResource BrushCoreGlow}" Opacity="0.45"/>
+
+        <!-- Hexagonal wireframe core -->
+        <Polygon x:Name="HexCore"
+                 Points="0,-38 33,-19 33,19 0,38 -33,19 -33,-19"
+                 Stroke="{StaticResource BrushCyan}"
+                 StrokeThickness="1.3"
+                 Fill="Transparent"
+                 Opacity="0.9"/>
+        <Polygon x:Name="HexCoreFill"
+                 Points="0,-38 33,-19 33,19 0,38 -33,19 -33,-19"
+                 Stroke="Transparent"
+                 StrokeThickness="0"
+                 Fill="{StaticResource BrushCoreGlow}"
+                 Opacity="0.25"/>
+
+        <!-- Counter-rotating inner hex -->
+        <Polygon x:Name="HexInner"
+                 Points="0,-24 21,-12 21,12 0,24 -21,12 -21,-12"
+                 Stroke="{StaticResource BrushMagenta}"
+                 StrokeThickness="0.9"
+                 Fill="Transparent"
+                 Opacity="0.65"
+                 RenderTransformOrigin="0.5,0.5">
+            <Polygon.RenderTransform>
+                <RotateTransform x:Name="HexInnerRotation"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+
+        <!-- Radial ticks -->
+        <Canvas x:Name="TicksCanvas"/>
+
+        <!-- Center point -->
+        <Ellipse Width="6" Height="6"
+                 Canvas.Left="-3" Canvas.Top="-3"
+                 Fill="{StaticResource BrushWhite}"
+                 Opacity="0.95"/>
+    </Canvas>
+</UserControl>
