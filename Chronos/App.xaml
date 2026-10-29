@@ -1,0 +1,10 @@
+﻿<Application x:Class="Chronos.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#000000"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#00FFFF"/>
+        <SolidColorBrush x:Key="SurfaceBrush" Color="#1A1A2E"/>
+    </Application.Resources>
+</Application>
