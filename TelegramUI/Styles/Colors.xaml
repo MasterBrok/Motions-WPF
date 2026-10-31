@@ -1,0 +1,44 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Dark Theme Colors -->
+    <Color x:Key="DarkAppBackground">#111318</Color>
+    <Color x:Key="DarkSidebarBackground">#171A21</Color>
+    <Color x:Key="DarkChatListBackground">#191D26</Color>
+    <Color x:Key="DarkConversationBackground">#10151D</Color>
+    <Color x:Key="DarkElevatedSurface">#202631</Color>
+    <Color x:Key="DarkHoverSurface">#252D3A</Color>
+    <Color x:Key="DarkSelectedSurface">#26374A</Color>
+    <Color x:Key="DarkPrimaryAccent">#3390EC</Color>
+    <Color x:Key="DarkAccentHover">#4BA3F5</Color>
+    <Color x:Key="DarkIncomingBubble">#202B36</Color>
+    <Color x:Key="DarkOutgoingBubble">#234D72</Color>
+    <Color x:Key="DarkPrimaryText">#F3F5F8</Color>
+    <Color x:Key="DarkSecondaryText">#9AA6B2</Color>
+    <Color x:Key="DarkMutedText">#6F7B88</Color>
+    <Color x:Key="DarkDivider">#2A303A</Color>
+    <Color x:Key="DarkSuccess">#43B581</Color>
+    <Color x:Key="DarkWarning">#E5B45C</Color>
+    <Color x:Key="DarkError">#E35D6A</Color>
+
+    <!-- Light Theme Colors: warm off-whites, reduced contrast glare -->
+    <Color x:Key="LightAppBackground">#F0F2F5</Color>
+    <Color x:Key="LightSidebarBackground">#E8EBF0</Color>
+    <Color x:Key="LightChatListBackground">#FAFAFA</Color>
+    <Color x:Key="LightConversationBackground">#F5F7FA</Color>
+    <Color x:Key="LightElevatedSurface">#FFFFFF</Color>
+    <Color x:Key="LightHoverSurface">#EAECF0</Color>
+    <Color x:Key="LightSelectedSurface">#DDE8F5</Color>
+    <Color x:Key="LightPrimaryAccent">#3B82C4</Color>
+    <Color x:Key="LightAccentHover">#2F72B5</Color>
+    <Color x:Key="LightIncomingBubble">#FFFFFF</Color>
+    <Color x:Key="LightOutgoingBubble">#D9E8F5</Color>
+    <Color x:Key="LightPrimaryText">#1E2836</Color>
+    <Color x:Key="LightSecondaryText">#5C6978</Color>
+    <Color x:Key="LightMutedText">#8E9BAB</Color>
+    <Color x:Key="LightDivider">#D8DDE5</Color>
+    <Color x:Key="LightSuccess">#2E9E6B</Color>
+    <Color x:Key="LightWarning">#C8923C</Color>
+    <Color x:Key="LightError">#C9394A</Color>
+
+</ResourceDictionary>

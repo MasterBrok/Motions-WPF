@@ -1,0 +1,40 @@
+﻿Build started 10/30/2026 11:32:19 AM.
+     1>Project "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" on node 1 (Restore target(s)).
+     1>_GetAllRestoreProjectPathItems:
+         Determining projects to restore...
+     1>Project "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" (1) is building "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" (1:6) on node 1 (_GenerateProjectRestoreGraph target(s)).
+     1>AddPrunePackageReferences:
+         Loading prune package data from PrunePackageData folder
+         Loading prune package data from PrunePackageData folder
+     1>Done Building Project "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" (_GenerateProjectRestoreGraph target(s)).
+     1>Restore:
+         Assets file has not changed. Skipping assets file writing. Path: D:\source\repos\Wpf-Ai\Motions\ABYSSAL\obj\project.assets.json
+         Restored D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj (in 0.8 ms).
+         
+         NuGet Config files used:
+             C:\Users\TA\AppData\Roaming\NuGet\NuGet.Config
+             C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.FallbackLocation.config
+             C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+         
+         Feeds used:
+             https://api.nuget.org/v3/index.json
+             C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+             C:\Program Files\dotnet\library-packs
+         All projects are up-to-date for restore.
+     1>Done Building Project "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" (Restore target(s)).
+   1:7>Project "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" on node 1 (default targets).
+     1>_CheckForNETCoreSdkIsPreview:
+       C:\Program Files\dotnet\sdk\11.0.100-rc.2.26504.105\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj]
+     1>D:\source\repos\Wpf-Ai\Motions\ABYSSAL\MainWindow.xaml(70,28): error MC3072: The property 'LetterSpacing' does not exist in XML namespace 'http://schemas.microsoft.com/winfx/2006/xaml/presentation'. Line 70 Position 28. [D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj]
+     1>Done Building Project "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+       "D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj" (default target) (1:7) ->
+       (MarkupCompilePass1 target) -> 
+         D:\source\repos\Wpf-Ai\Motions\ABYSSAL\MainWindow.xaml(70,28): error MC3072: The property 'LetterSpacing' does not exist in XML namespace 'http://schemas.microsoft.com/winfx/2006/xaml/presentation'. Line 70 Position 28. [D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.21

@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Styles/Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="AppBackgroundBrush" Color="{StaticResource LightAppBackground}"/>
+    <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="{StaticResource LightSidebarBackground}"/>
+    <SolidColorBrush x:Key="ChatListBackgroundBrush" Color="{StaticResource LightChatListBackground}"/>
+    <SolidColorBrush x:Key="ConversationBackgroundBrush" Color="{StaticResource LightConversationBackground}"/>
+    <SolidColorBrush x:Key="ElevatedSurfaceBrush" Color="{StaticResource LightElevatedSurface}"/>
+    <SolidColorBrush x:Key="HoverSurfaceBrush" Color="{StaticResource LightHoverSurface}"/>
+    <SolidColorBrush x:Key="SelectedSurfaceBrush" Color="{StaticResource LightSelectedSurface}"/>
+    <SolidColorBrush x:Key="PrimaryAccentBrush" Color="{StaticResource LightPrimaryAccent}"/>
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource LightAccentHover}"/>
+    <SolidColorBrush x:Key="IncomingBubbleBrush" Color="{StaticResource LightIncomingBubble}"/>
+    <SolidColorBrush x:Key="OutgoingBubbleBrush" Color="{StaticResource LightOutgoingBubble}"/>
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="{StaticResource LightPrimaryText}"/>
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource LightSecondaryText}"/>
+    <SolidColorBrush x:Key="MutedTextBrush" Color="{StaticResource LightMutedText}"/>
+    <SolidColorBrush x:Key="DividerBrush" Color="{StaticResource LightDivider}"/>
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource LightSuccess}"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource LightWarning}"/>
+    <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource LightError}"/>
+    <SolidColorBrush x:Key="ReplyHighlightBrush" Color="#33D9E8F5"/>
+    <SolidColorBrush x:Key="OnAccentBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="IncomingMetaBrush" Color="#8A94A0"/>
+    <SolidColorBrush x:Key="OutgoingMetaBrush" Color="#2E6DA8"/>
+    <SolidColorBrush x:Key="IncomingTextBrush" Color="#1E2836"/>
+    <SolidColorBrush x:Key="OutgoingTextBrush" Color="#1E2836"/>
+
+</ResourceDictionary>

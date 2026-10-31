@@ -1,0 +1,31 @@
+﻿<Application x:Class="TelegramUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:TelegramUI.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Icons.xaml"/>
+                <ResourceDictionary Source="/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="/Styles/Dimensions.xaml"/>
+                <ResourceDictionary Source="/Styles/Typography.xaml"/>
+                <ResourceDictionary Source="/Styles/Animations.xaml"/>
+                <ResourceDictionary Source="/Styles/Controls.xaml"/>
+                <ResourceDictionary Source="/Themes/DarkTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <converters:InitialsConverter x:Key="InitialsConverter"/>
+            <converters:TimeConverter x:Key="TimeConverter"/>
+            <converters:UnreadVisibilityConverter x:Key="UnreadVisibilityConverter"/>
+            <converters:MessageBubbleBackgroundConverter x:Key="MessageBubbleBackgroundConverter"/>
+            <converters:MessageAlignmentConverter x:Key="MessageAlignmentConverter"/>
+            <converters:ToolbarAlignmentConverter x:Key="ToolbarAlignmentConverter"/>
+            <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+            <converters:MessageTypeVisibilityConverter x:Key="MessageTypeVisibilityConverter"/>
+            <converters:BoolToVisConverter x:Key="BoolToVisConverter"/>
+            <converters:InverseBoolToVisConverter x:Key="InverseBoolToVisConverter"/>
+            <converters:CallColorConverter x:Key="CallColorConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

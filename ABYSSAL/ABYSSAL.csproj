@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ABYSSAL</AssemblyName>
+    <AssemblyTitle>ABYSSAL - The Lost City Beneath the Ocean</AssemblyTitle>
+    <Product>ABYSSAL</Product>
+    <Description>A Premium Real-Time 3D Cinematic Motion Graphics Experience</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon />
+  </PropertyGroup>
+
+</Project>

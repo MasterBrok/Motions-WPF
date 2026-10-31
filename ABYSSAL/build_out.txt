@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+C:\Program Files\dotnet\sdk\11.0.100-rc.2.26504.105\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj]
+D:\source\repos\Wpf-Ai\Motions\ABYSSAL\Camera\CinematicCameraRig.cs(7,30): warning CS8618: Non-nullable property 'Camera' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj]
+  ABYSSAL -> D:\source\repos\Wpf-Ai\Motions\ABYSSAL\bin\Debug\net10.0-windows\ABYSSAL.dll
+
+Build succeeded.
+
+D:\source\repos\Wpf-Ai\Motions\ABYSSAL\Camera\CinematicCameraRig.cs(7,30): warning CS8618: Non-nullable property 'Camera' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [D:\source\repos\Wpf-Ai\Motions\ABYSSAL\ABYSSAL.csproj]
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:06.82
